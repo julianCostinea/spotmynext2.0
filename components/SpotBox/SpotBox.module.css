@@ -55,6 +55,7 @@
 }
 .recommendButton {
   color: #2a358f;
+  background-color: transparent;
   padding: 0;
   vertical-align: middle;
   border: none;

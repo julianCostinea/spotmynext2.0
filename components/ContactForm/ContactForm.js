@@ -35,7 +35,7 @@ const ContactForm = (props) => {
     }
     grecaptcha.ready(() => {
       grecaptcha
-        .execute("6LcVZSkcAAAAAJq7M6sq2rnUp5FfmPLNG6itAZr8", {
+        .execute("6LeWW44fAAAAAG0yNyIQsVVpsk6gJtiLsQcqe2kY", {
           action: "homepage",
         })
         .then((token) => {
