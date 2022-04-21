@@ -53,7 +53,7 @@ const Recommendation = (props) => {
           role="button"
           tabIndex={0}
         >
-          <Image alt={title} quality={100} layout="fill" src={imagePathName} />
+          <Image alt={title} layout="fill" src={imagePathName} />
         </div>
       </div>
       <Portal selector="#recommendationPreviewOverlay">
