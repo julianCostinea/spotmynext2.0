@@ -52,7 +52,7 @@ const SpotBox = (props) => {
     setIsLoading(true);
 
     fetch(
-      `/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
+      `https://spotmynext2-0.vercel.app/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
     )
       .then((response) => response.json())
       .then((data) => {
