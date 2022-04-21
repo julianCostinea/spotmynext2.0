@@ -83,7 +83,9 @@ const RecommendationPreview = (props) => {
       const data = { parentId, votedItems };
       HelperFunctions.fetchVoteRecommendations(data);
     }
-    fetch(`https://spotmynext2-0.vercel.app/api/${window.location.pathname}/${previewFetchId}`)
+    fetch(
+      `https://spotmynext2-0.vercel.app/api/${window.location.pathname}/${previewFetchId}`
+    )
       .then((response) => response.json())
       .then((data) => {
         if (data.result.length === 0) {
@@ -109,7 +111,7 @@ const RecommendationPreview = (props) => {
       setIsFormLoading(true);
       const fetchId = searchTermInputRef.current.value.trim();
       fetch(
-        `https://spotmynext2-0.vercel.app/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
+        `/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -249,10 +251,13 @@ const RecommendationPreview = (props) => {
         </div>
       </div>
       <div className={classes.recommendedItems}>
-        <h1 className={classes.recommendedItemsHeader}>Recommended:</h1>
+        <h1 className={classes.recommendedItemsHeader}>
+          People have recommended:
+        </h1>
+        <Recommendations>{sortedPreviewRecommendations}</Recommendations>
         <form action="" className={classes.wrap}>
           <label htmlFor="searchTerm" className={classes.searchTermLabel}>
-            Or recommend a different title
+            Recommend a different title
           </label>
           <div className={classes.search}>
             <input
@@ -269,9 +274,7 @@ const RecommendationPreview = (props) => {
           {fetchedNewRecommendations}
           {isFormLoading ? <Loader formLoader /> : null}
         </form>
-        <Recommendations>{sortedPreviewRecommendations}</Recommendations>
       </div>
-
       <div
         onClick={closeRecommendationPreview}
         className={classes.ClosePreview}
