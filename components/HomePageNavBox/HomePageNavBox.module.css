@@ -1,0 +1,60 @@
+.HomePageNavBox {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 2rem;
+  color: #fff;
+  margin: 1rem;
+  position: relative;
+  height: 3rem;
+  background-color: var(--line-active);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.HomePageNavBox svg {
+  vertical-align: middle;
+  width: 2rem;
+  height: 2rem;
+}
+
+.HomePageNavBox:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 3rem solid #f0f0f0;
+  border-right: 10px solid transparent;
+  width: 0;
+}
+.HomePageNavBox:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom: 3rem solid #f0f0f0;
+  border-left: 10px solid transparent;
+  width: 0;
+}
+@media (hover: hover) and (pointer: fine) {
+  .HomePageNavBox:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (min-width: 1200px) {
+  .HomePageNavBox {
+    padding: 5px 20px;
+    font-size: 4rem;
+    height: 7rem;
+  }
+  .HomePageNavBox:before {
+    border-top: 7rem solid #f0f0f0;
+  }
+  .HomePageNavBox:after {
+    border-bottom: 7rem solid #f0f0f0;
+  }
+  .HomePageNavBox svg {
+    width: 70px;
+    height: 70px;
+  }
+}

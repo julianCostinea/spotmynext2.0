@@ -257,7 +257,7 @@ const RecommendationPreview = (props) => {
         <Recommendations>{sortedPreviewRecommendations}</Recommendations>
         <form action="" className={classes.wrap}>
           <label htmlFor="searchTerm" className={classes.searchTermLabel}>
-            Recommend a different title
+            Be the first to recommend your title:
           </label>
           <div className={classes.search}>
             <input

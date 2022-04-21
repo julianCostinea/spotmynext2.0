@@ -45,8 +45,7 @@
 }
 .wrap {
   width: 60% !important;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
 }
 .search {
   display: flex;
