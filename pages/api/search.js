@@ -9,7 +9,7 @@ async function handler(req, res) {
     ) {
       try {
         const cleanQuery = sanitize(req.query.searchId)
-        const collection = req.query.collection.slice(1);
+        const collection = "videogames";
         const { db } = await connectToDatabase();
         const dbCollection = db.collection(collection);
         const result = await dbCollection
