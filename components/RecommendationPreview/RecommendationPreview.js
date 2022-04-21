@@ -83,7 +83,7 @@ const RecommendationPreview = (props) => {
       const data = { parentId, votedItems };
       HelperFunctions.fetchVoteRecommendations(data);
     }
-    fetch(`/api/${window.location.pathname}/${previewFetchId}`)
+    fetch(`https://spotmynext2-0.vercel.app/api/${window.location.pathname}/${previewFetchId}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.result.length === 0) {
@@ -109,7 +109,7 @@ const RecommendationPreview = (props) => {
       setIsFormLoading(true);
       const fetchId = searchTermInputRef.current.value.trim();
       fetch(
-        `/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
+        `https://spotmynext2-0.vercel.app/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
       )
         .then((response) => response.json())
         .then((data) => {
