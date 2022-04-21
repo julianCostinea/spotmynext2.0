@@ -1,0 +1,51 @@
+.imageContainer {
+  position: relative;
+  margin-top: 5rem;
+  width: 15rem;
+  height: 15rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  transition: all 0.5s;
+  border-radius: 2%;
+  background-color: lightgray;
+}
+
+.imageContainer img {
+  border-radius: 2%;
+}
+
+.loads {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeload;
+  animation-name: placeload;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: #eeeeee;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 1200px 104px;
+  position: relative;
+}
+@keyframes placeload {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .imageContainer {
+    width: 20rem;
+    height: 19rem;
+  }
+  /* .imageContainer:hover {
+    transform: scale(1.5);
+  } */
+}

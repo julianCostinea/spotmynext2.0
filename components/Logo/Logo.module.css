@@ -1,0 +1,24 @@
+.Logo {
+    margin-top: 5px;
+    padding: 0px;
+    max-height: 80%;
+    border-radius: 5px;
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.LogoContainer svg{
+    margin:0;
+}
+.LogoContainer  p{
+    font-size: 1.2rem;
+}
+
+@media (min-width: 780px) {
+    .Logo {
+        margin-right: 3rem;
+    }
+}

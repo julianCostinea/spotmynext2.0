@@ -1,0 +1,41 @@
+.Container{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, var(--main-color), #f0bb2d);
+}
+
+.BoxShadow{
+    box-shadow: 0px 1px 0px #ebf0f7;
+}
+
+.Toolbar {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+.Toolbar nav {
+    height: 100%;
+}
+
+.Logo {
+    height: 80%;
+}
+
+@media (max-width: 780px) {
+    .DesktopOnly {
+        display: none;
+    }
+    .Toolbar {
+        justify-content: space-between;
+        height: 4rem;
+    }
+}

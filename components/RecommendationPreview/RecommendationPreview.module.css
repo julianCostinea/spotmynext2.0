@@ -1,0 +1,198 @@
+.RecommendationPreview {
+  position: fixed;
+  width: 90vw;
+  height: 80vh;
+  overflow-y: scroll;
+  left: 5%;
+  top: 10%;
+  z-index: 200;
+  background-color: var(--off-secondary-color);
+  box-sizing: border-box;
+  transition: transform 0.7s ease-out;
+  text-align: center;
+  border-radius: 3px;
+  padding: 2rem 10px;
+}
+
+.currentItem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 15rem;
+  height: 18rem;
+  margin: 0 auto;
+  border: 2px solid var(--main-color);
+  position: relative;
+}
+.errorHeader {
+  color: red;
+}
+.recommendedItemsHeader {
+  color: #5e71af;
+}
+.descriptionAnimation {
+  animation: showDescription 0.5s ease-out forwards;
+}
+.imageAnimation {
+  animation: showImage 0.4s ease-out forwards;
+}
+.titleClasses {
+  animation: showTitle 0.4s ease-out forwards;
+}
+.wrap {
+  width: 60% !important;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+.search {
+  display: flex;
+  width: 100% !important;
+}
+.searchTermLabel {
+  color: #5e71af;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.searchTerm {
+  border: 3px solid #5e71af;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: var(--off-line-active);
+  font-size: 1.5rem;
+  width: 100% !important;
+}
+
+.searchTerm:focus {
+  color: var(--line-active);
+}
+
+.searchButton {
+  border: 1px solid #5e71af;
+  background: #5e71af;
+  text-align: center;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.searchButton svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+.ClosePreview {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.ClosePreview span {
+  display: block;
+  width: 29px;
+  height: 5px;
+  margin-bottom: 5px;
+  background-color: var(--off-line-active);
+  transition: background-color 0.2s;
+}
+.ClosePreview:hover span {
+  background-color: var(--line-active);
+}
+.ClosePreview span {
+  transform: rotate(45deg) translate(1px, 0px);
+}
+.ClosePreview span:nth-last-child(1) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.openPreview {
+  animation: openPreview 0.2s ease-out forwards;
+}
+.closePreview {
+  animation: closePreview 0.2s ease-out forwards;
+}
+
+@keyframes showDescription {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  20% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes showImage {
+  0% {
+    opacity: 0;
+    transform: translateX(-30%);
+  }
+  20% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes showTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes openPreview {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes closePreview {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+@media (min-width: 781px) {
+  .currentItemDescription {
+    margin-left: 4rem;
+    text-align: left;
+    max-width: 40%;
+  }
+  .RecommendationPreview {
+    overflow-y: auto;
+    overflow-x: hidden;
+    top: 2%;
+    padding: 1rem;
+    width: 98vw;
+    min-height: 95vh;
+    left: 1%;
+  }
+  .wrap {
+    width: 20% !important;
+  }
+}

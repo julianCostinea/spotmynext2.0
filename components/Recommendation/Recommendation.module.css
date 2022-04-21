@@ -1,0 +1,54 @@
+.recommendation {
+  margin: 0 auto;
+  cursor: pointer;
+}
+.recommendationPhoto {
+  width: 15rem;
+  margin: 0 auto;
+  height: 19rem;
+  border: 2px solid var(--main-color);
+  transition: all 0.3s;
+  position: relative;
+  background-color: lightgray;
+}
+/* .recommendation:hover {
+  transform: scale(1.2);
+} */
+.recommendationTitle{
+  min-height: 4rem;
+}
+h2.recommendationTitle{
+  margin-block-start: 0em!important;
+  margin-block-end: 0em!important;
+}
+.loads {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeload;
+  animation-name: placeload;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: #eeeeee;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 1200px 104px;
+  position: relative;
+}
+@keyframes placeload {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .recommendation:hover > .recommendationPhoto{
+    transform: scale(1.1);
+  }
+}

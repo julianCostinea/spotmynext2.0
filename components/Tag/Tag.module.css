@@ -1,0 +1,33 @@
+.Tag {
+  display: inline-block;
+  padding: 5px 15px;
+  color: #fff;
+  margin: 3px;
+  position: relative;
+  height: 2rem;
+  background-color: var(--line-active);
+}
+.SecondaryTag{
+    height: 1.5rem;
+    font-size: 12px;
+    background-color: var(--off-line-active);
+    line-height: 12px;
+}
+.Tag:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 2rem solid #e8eddf;
+  border-right: 10px solid transparent;
+  width: 0;
+}
+.Tag:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom: 2rem solid #e8eddf;
+  border-left: 10px solid transparent;
+  width: 0;
+}

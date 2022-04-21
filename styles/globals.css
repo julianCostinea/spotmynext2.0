@@ -4,8 +4,17 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 16px;
+  color: #364f6b;
 }
 
+:root {
+  --main-color: #f4ce68;
+  --off-main-color: #f6d886;
+  --off-secondary-color: #e8eddf;
+  --line-active: #364f6b;
+  --off-line-active: #8695a6;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +22,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.h-6{
+  height: 1.5rem;
+}
+.w-6{
+  width: 1.5rem;
+}
+#recommendationPreviewOverlay{
+  position: relative;
 }

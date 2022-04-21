@@ -1,0 +1,36 @@
+.newRecommendation {
+  padding: 2px;
+  border: 2px solid #5e71af;
+  border-radius: 3px;
+  color: #5e71af;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.newRecommendation p{
+  margin: 0 10px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.voteUpButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  opacity: 0.3;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.voteUpButton:hover, .voteUpButtonActive{
+  opacity: 1;
+}
+.voteUpButton svg{
+  color: #5e71af;
+}
