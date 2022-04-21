@@ -35,7 +35,7 @@ const Books = (props) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "http://localhost:3000/api/popularItems?collection=books"
+    "https://spotmynext2-0.vercel.app/api/popularItems?collection=books"
   );
   const popularItems = await res.json();
 
