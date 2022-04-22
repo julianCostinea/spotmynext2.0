@@ -15,7 +15,7 @@ function jsonResponse(status: number, data: any, init?: ResponseInit) {
 }
 
 export function middleware(req: NextRequest, res: NextResponse) {
-  if (req.nextUrl.host === "localhost:3000") {
+  if (req.nextUrl.host === "localhost:3000" || req.nextUrl.host ==="spotmynext2-0.vercel.app") {
     return NextResponse.next();
   }
 
