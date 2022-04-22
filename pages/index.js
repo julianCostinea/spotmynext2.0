@@ -13,7 +13,7 @@ export default function Home() {
         <HomePageNavBox link="/books"> Books {Icons.bookIcon}</HomePageNavBox>
       </div>
       <HomePageNavBox link="/suprise"> Suprise Me! </HomePageNavBox>
-      <h1>Popular right now:</h1>
+      <h1>Recently added:</h1>
     </>
   );
 }

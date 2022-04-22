@@ -59,7 +59,6 @@ const SpotBox = (props) => {
         if (!data.result) {
           setErrorHeader(`Something went wrong. We're looking into it`);
           setIsLoading(false);
-          console.log(data);
           return;
         }
         if (data.result.length == 0) {
@@ -69,14 +68,10 @@ const SpotBox = (props) => {
           return;
         }
         setItems(data.result);
-        console.log(data);
         setIsLoading(false);
         setFinishedSearch(true);
       })
       .catch((error) => {
-        console.log('====================================');
-        console.log(error.message);
-        console.log('====================================');
         setErrorHeader(`Something went wrong. We're looking into it`);
         setIsLoading(false);
       });
