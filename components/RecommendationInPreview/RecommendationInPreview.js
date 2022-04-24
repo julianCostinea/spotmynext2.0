@@ -6,10 +6,15 @@ import classes from "./RecommendationInPreview.module.css";
 
 const RecommendationInPreview = (props) => {
   const {
-    id, photo, title, voteButtonHandler, standing, parentId, fetchNextPreview,
+    id,
+    photo,
+    title,
+    voteButtonHandler,
+    standing,
+    parentId,
+    fetchNextPreview,
   } = props;
 
-  const [imagePathName, setImagePathName] = useState("/images");
   const [voted, setVoted] = useState(false);
 
   function voteUpRecommendation(event) {
@@ -43,21 +48,7 @@ const RecommendationInPreview = (props) => {
 
   useEffect(() => {
     setVoted(false);
-    switch (window.location.pathname) {
-      case "/videogames":
-        setImagePathName(`/images/videogames/${photo}`);
-        break;
-      case "/movies":
-        setImagePathName(`/images/movies/${photo}`);
-        break;
-      case "/books":
-        setImagePathName(`/images/books/${photo}`);
-        break;
-      default:
-        setImagePathName(`/images/videogames/${photo}`);
-        break;
-    }
-  }, [parentId, photo]);
+  }, [parentId]);
 
   return (
     <div className={classes.recommendation}>
@@ -68,7 +59,7 @@ const RecommendationInPreview = (props) => {
         role="link"
         tabIndex={0}
       >
-        <Image alt={title} layout="fill" src={imagePathName} />
+        <Image alt={title} layout="fill" src={`/images/itemsPhotos/${photo}`} />
         <button
           type="button"
           title="Recommend this title"
