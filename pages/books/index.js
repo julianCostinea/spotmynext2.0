@@ -8,9 +8,6 @@ import classes from './books.module.css';
 
 const Books = (props) => {
   const { popularItems } = props;
-  console.log('====================================');
-  console.log(popularItems);
-  console.log('====================================');
   // const fetchedPopularRecommendations = popularItems.result.map(
   //   (item, index) => (
   //     <Recommendation
@@ -36,18 +33,18 @@ const Books = (props) => {
   );
 };
 
-export async function getStaticProps() {
-  const res = await fetch(
-    "https://spotmynext2-0.vercel.app/api/popularItems?collection=books"
-  );
-  const popularItems = await res.json();
+// export async function getStaticProps() {
+//   const res = await fetch(
+//     "https://spotmynext2-0.vercel.app/api/popularItems?collection=books"
+//   );
+//   const popularItems = await res.json();
 
-  return {
-    props: {
-      popularItems,
-    },
-    revalidate: 3600,
-  };
-}
+//   return {
+//     props: {
+//       popularItems,
+//     },
+//     revalidate: 3600,
+//   };
+// }
 
 export default Books;
