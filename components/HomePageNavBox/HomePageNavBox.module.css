@@ -1,6 +1,6 @@
 .HomePageNavBox {
   display: inline-block;
-  padding: 5px 20px;
+  padding: 10px 20px;
   font-size: 2rem;
   color: #fff;
   margin: 1rem;
@@ -9,6 +9,7 @@
   background-color: var(--line-active);
   cursor: pointer;
   transition: all 0.3s;
+  line-height: 2rem;
 }
 
 .HomePageNavBox svg {
@@ -46,6 +47,7 @@
     padding: 5px 20px;
     font-size: 4rem;
     height: 7rem;
+    line-height: 5rem;
   }
   .HomePageNavBox:before {
     border-top: 7rem solid #f0f0f0;

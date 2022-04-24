@@ -12,9 +12,11 @@ async function handler(req, res) {
         mainTags: req.body.mainTags,
         secondaryTags: req.body.secondaryTags,
       };
-      const booksCollection = db.collection(req.body.collection);
-      const result = await booksCollection.insertOne(item);
-      res.status(200).json({ message: "success", result: result });
+      const itemCollection = db.collection(req.body.collection);
+      const allItemsCollection = db.collection("allItems");
+      const result = await itemCollection.insertOne(item);
+      const allItemsResult = await allItemsCollection.insertOne(item);
+      res.status(200).json({ message: "success", result, allItemsResult });
     } catch (error) {
       res.status(error.code ?? 502).send({
         message: error.message ?? "Something went wrong.",
