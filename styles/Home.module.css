@@ -10,6 +10,12 @@
   font-size: 3rem;
   text-align: center;
 }
-.HomePageNavBoxContainer{
+.HomePageNavBoxContainer {
   margin: 2rem auto;
+}
+.hotPicksHeader {
+  color: var(--main-color);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-size: 3rem;
 }

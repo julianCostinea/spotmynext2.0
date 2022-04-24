@@ -35,11 +35,11 @@ const Home = (props) => {
         <HomePageNavBox link="/books"> Books {Icons.bookIcon}</HomePageNavBox>
       </div>
       <HomePageNavBox link="/suprise"> Suprise Me! </HomePageNavBox>
-      <h1>Recently added:</h1>
+      <h1 className={classes.hotPicksHeader}>Recently added:</h1>
       <Recommendations>{fetchedRecentRecommendations}</Recommendations>
     </>
   );
-}
+};
 export async function getStaticProps() {
   const res = await fetch("https://spotmynext2-0.vercel.app/api/recentlyAdded");
   const recentItems = await res.json();

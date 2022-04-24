@@ -238,7 +238,7 @@ const RecommendationPreview = (props) => {
               layout="fill"
               src={
                 fetchedData
-                  ? `/images${window.location.pathname}/${fetchedData.photo}`
+                  ? `/images/itemsPhotos/${fetchedData.photo}`
                   : props.photo
               }
             />

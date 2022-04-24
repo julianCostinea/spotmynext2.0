@@ -56,7 +56,7 @@ const Recommendation = (props) => {
               description={description}
               mainTags={mainTags}
               secondaryTags={secondaryTags}
-              photo={imagePathName}
+              photo={`/images/itemsPhotos/${photo}`}
               recommendations={recommendations}
               recommendationOpened={recommendationOpened}
             />
