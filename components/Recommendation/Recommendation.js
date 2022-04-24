@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import { Transition } from "react-transition-group";
 import Portal from "../../hoc/Portal/Portal";
@@ -14,7 +14,6 @@ const Recommendation = (props) => {
     setOpenRecommendationPreview(true);
     sideDrawerCtx.showBackdropHandler();
   };
-  const [imagePathName, setImagePathName] = useState("/images");
   const [recommendationOpened, setRecommendationOpened] = useState(false);
   const {
     id,
@@ -26,23 +25,6 @@ const Recommendation = (props) => {
     recommendations,
   } = props;
 
-  useEffect(() => {
-    switch (window.location.pathname) {
-      case "/videogames":
-        setImagePathName(`${imagePathName}/videogames/${photo}`);
-        break;
-      case "/movies":
-        setImagePathName(`${imagePathName}/movies/${photo}`);
-        break;
-      case "/books":
-        setImagePathName(`${imagePathName}/books/${photo}`);
-        break;
-      default:
-        setImagePathName(`${imagePathName}/videogames/${photo}`);
-        break;
-    }
-  }, []);
-
   return (
     <>
       <div className={classes.recommendation}>
@@ -53,7 +35,7 @@ const Recommendation = (props) => {
           role="button"
           tabIndex={0}
         >
-          <Image alt={title} layout="fill" src={imagePathName} />
+          <Image alt={title} layout="fill" src={`/images/itemsPhotos/${photo}`} />
         </div>
       </div>
       <Portal selector="#recommendationPreviewOverlay">
