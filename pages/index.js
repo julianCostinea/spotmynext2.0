@@ -5,7 +5,7 @@ import Recommendation from "../components/Recommendation/Recommendation";
 
 import classes from "../styles/Home.module.css";
 
-export default function Home(props) {
+const Home = (props) => {
   const { recentItems } = props;
   const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
     <Recommendation
@@ -51,3 +51,4 @@ export async function getStaticProps() {
     revalidate: 3600,
   };
 }
+export default Home;
