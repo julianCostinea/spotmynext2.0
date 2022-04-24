@@ -41,7 +41,7 @@ export default function Home(props) {
   );
 }
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/recentlyAdded");
+  const res = await fetch("https://spotmynext2-0.vercel.app:3000/api/recentlyAdded");
   const recentItems = await res.json();
 
   return {
