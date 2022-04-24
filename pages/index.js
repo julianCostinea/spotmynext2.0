@@ -7,18 +7,18 @@ import classes from "../styles/Home.module.css";
 
 export default function Home(props) {
   const { recentItems } = props;
-  const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
-    <Recommendation
-      key={item._id}
-      id={item._id}
-      title={item.title}
-      description={item.description}
-      photo={item.photo}
-      mainTags={item.mainTags}
-      secondaryTags={item.secondaryTags}
-      recommendations={item.recommendations}
-    />
-  ));
+  // const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
+  //   <Recommendation
+  //     key={item._id}
+  //     id={item._id}
+  //     title={item.title}
+  //     description={item.description}
+  //     photo={item.photo}
+  //     mainTags={item.mainTags}
+  //     secondaryTags={item.secondaryTags}
+  //     recommendations={item.recommendations}
+  //   />
+  // ));
 
   return (
     <>
@@ -36,18 +36,18 @@ export default function Home(props) {
       </div>
       <HomePageNavBox link="/suprise"> Suprise Me! </HomePageNavBox>
       <h1>Recently added:</h1>
-      <Recommendations>{fetchedRecentRecommendations}</Recommendations>
+      {/* <Recommendations>{fetchedRecentRecommendations}</Recommendations> */}
     </>
   );
 }
-export async function getStaticProps() {
-  const res = await fetch("https://spotmynext2-0.vercel.app:3000/api/recentlyAdded");
-  const recentItems = await res.json();
+// export async function getStaticProps() {
+//   const res = await fetch("https://spotmynext2-0.vercel.app:3000/api/recentlyAdded");
+//   const recentItems = await res.json();
 
-  return {
-    props: {
-      recentItems,
-    },
-    revalidate: 3600,
-  };
-}
+//   return {
+//     props: {
+//       recentItems,
+//     },
+//     revalidate: 3600,
+//   };
+// }
