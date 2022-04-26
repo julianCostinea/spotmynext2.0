@@ -96,7 +96,7 @@ const SpotBox = (props) => {
         showContactForm={showContactForm}
         hideContactForm={() => setShowContactForm(false)}
       />
-      <h1>Let&apos;s find your next {item}</h1>
+      <h1>Find me a {item} just like:</h1>
       {errorHeader ? (
         <h2 className={classes.errorHeader}>{errorHeader}</h2>
       ) : null}

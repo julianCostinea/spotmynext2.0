@@ -14,7 +14,6 @@ const Recommendation = (props) => {
     setOpenRecommendationPreview(true);
     sideDrawerCtx.showBackdropHandler();
   };
-  const [recommendationOpened, setRecommendationOpened] = useState(false);
   const {
     id,
     description,
@@ -35,7 +34,11 @@ const Recommendation = (props) => {
           role="button"
           tabIndex={0}
         >
-          <Image alt={title} layout="fill" src={`/images/itemsPhotos/${photo}`} />
+          <Image
+            alt={title}
+            layout="fill"
+            src={`/images/itemsPhotos/${photo}`}
+          />
         </div>
       </div>
       <Portal selector="#recommendationPreviewOverlay">
@@ -45,7 +48,6 @@ const Recommendation = (props) => {
           unmountOnExit
           in={openRecommendationPreview}
           timeout={200}
-          onEntering={() => setRecommendationOpened(true)}
         >
           {(state) => (
             <RecommendationPreview
@@ -58,7 +60,6 @@ const Recommendation = (props) => {
               secondaryTags={secondaryTags}
               photo={`/images/itemsPhotos/${photo}`}
               recommendations={recommendations}
-              recommendationOpened={recommendationOpened}
             />
           )}
         </Transition>

@@ -4,6 +4,7 @@ import Recommendations from "../components/Recommendations/Recommendations";
 import Recommendation from "../components/Recommendation/Recommendation";
 
 import classes from "../styles/Home.module.css";
+import SurpriseMe from "../components/HomePageNavBox/SurpriseMe";
 
 const Home = (props) => {
   const { recentItems } = props;
@@ -34,7 +35,7 @@ const Home = (props) => {
         </HomePageNavBox>
         <HomePageNavBox link="/books"> Books {Icons.bookIcon}</HomePageNavBox>
       </div>
-      <HomePageNavBox link="/suprise"> Suprise Me! </HomePageNavBox>
+      <SurpriseMe />
       <h1 className={classes.hotPicksHeader}>Recently added:</h1>
       <Recommendations>{fetchedRecentRecommendations}</Recommendations>
     </>
