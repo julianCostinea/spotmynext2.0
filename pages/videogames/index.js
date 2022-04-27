@@ -8,7 +8,7 @@ import classes from './videogames.module.css';
 
 const VideoGames = (props) => {
   const { popularItems } = props;
-  console.log(recentItems);
+  console.log(popularItems);
   // const fetchedPopularRecommendations = popularItems.result.map(
   //   (item, index) => (
   //     <Recommendation

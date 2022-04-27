@@ -8,7 +8,7 @@ import classes from './movies.module.css';
 
 const Movies = (props) => {
   const { popularItems } = props;
-  console.log(recentItems);
+  console.log(popularItems);
   // const fetchedPopularRecommendations = popularItems.result.map(
   //   (item, index) => (
   //     <Recommendation
