@@ -31,7 +31,7 @@ const Movies = (props) => {
         placeholder="Star Wars, Avengers, Goodfellas"
       />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>
-      {/* <Recommendations>{fetchedPopularRecommendations}</Recommendations> */}
+      <Recommendations>{fetchedPopularRecommendations}</Recommendations>
     </React.Fragment>
   );
 };
