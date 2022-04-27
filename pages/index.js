@@ -7,19 +7,19 @@ import classes from "../styles/Home.module.css";
 import SurpriseMe from "../components/HomePageNavBox/SurpriseMe";
 
 const Home = (props) => {
-  // const { recentItems } = props;
-  // const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
-  //   <Recommendation
-  //     key={item._id}
-  //     id={item._id}
-  //     title={item.title}
-  //     description={item.description}
-  //     photo={item.photo}
-  //     mainTags={item.mainTags}
-  //     secondaryTags={item.secondaryTags}
-  //     recommendations={item.recommendations}
-  //   />
-  // ));
+  const { recentItems } = props;
+  const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
+    <Recommendation
+      key={item._id}
+      id={item._id}
+      title={item.title}
+      description={item.description}
+      photo={item.photo}
+      mainTags={item.mainTags}
+      secondaryTags={item.secondaryTags}
+      recommendations={item.recommendations}
+    />
+  ));
 
   return (
     <>
@@ -37,19 +37,19 @@ const Home = (props) => {
       </div>
       <SurpriseMe />
       <h1 className={classes.hotPicksHeader}>Recently added:</h1>
-      {/* <Recommendations>{fetchedRecentRecommendations}</Recommendations> */}
+      <Recommendations>{fetchedRecentRecommendations}</Recommendations>
     </>
   );
 };
-// export async function getStaticProps() {
-//   const res = await fetch("https://www.spotmynext.com/api/recentlyAdded");
-//   const recentItems = await res.json();
+export async function getStaticProps() {
+  const res = await fetch("https://www.spotmynext.com/api/recentlyAdded");
+  const recentItems = await res.json();
 
-//   return {
-//     props: {
-//       recentItems,
-//     },
-//     revalidate: 3600,
-//   };
-// }
+  return {
+    props: {
+      recentItems,
+    },
+    revalidate: 3600,
+  };
+}
 export default Home;

@@ -35,7 +35,7 @@ const ContactForm = (props) => {
     }
     grecaptcha.ready(() => {
       grecaptcha
-        .execute("6LeWW44fAAAAAG0yNyIQsVVpsk6gJtiLsQcqe2kY", {
+        .execute("6LdbL6UfAAAAANLOUZ6mlVjyaWbhC0WXEZYGdEuw", {
           action: "homepage",
         })
         .then((token) => {
@@ -103,7 +103,7 @@ const ContactForm = (props) => {
       }}
     >
       <div className={classes.formContainer}>
-        <Script src="https://www.google.com/recaptcha/api.js?render=6LcVZSkcAAAAAJq7M6sq2rnUp5FfmPLNG6itAZr8"></Script>
+        <Script src="https://www.google.com/recaptcha/api.js?render=6LdbL6UfAAAAANLOUZ6mlVjyaWbhC0WXEZYGdEuw"></Script>
         <h3 style={{ marginBlock: 0 }}>
           Feel free to leave out any fields you&apos;re not sure of
         </h3>
