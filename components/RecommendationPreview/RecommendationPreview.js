@@ -84,7 +84,7 @@ const RecommendationPreview = (props) => {
       HelperFunctions.fetchVoteRecommendations(data);
     }
     fetch(
-      `https://spotmynext2-0.vercel.app/api/${window.location.pathname}/${previewFetchId}`
+      `https://www.spotmynext.com/api/${window.location.pathname}/${previewFetchId}`
     )
       .then((response) => response.json())
       .then((data) => {

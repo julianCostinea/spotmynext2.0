@@ -40,7 +40,7 @@ const ContactForm = (props) => {
         })
         .then((token) => {
           formData.recaptcha = token;
-          fetch("https://spotmynext2-0.vercel.app/api/userRecommendationMail", {
+          fetch("https://www.spotmynext.com/api/userRecommendationMail", {
             method: "POST",
             body: JSON.stringify(formData),
           })

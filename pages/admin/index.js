@@ -28,7 +28,7 @@ const Admin = () => {
       setErrorHeader("Fill out all fields");
       return;
     }
-    fetch(`https://spotmynext2-0.vercel.app/api/admin/insertItem`, {
+    fetch(`https://www.spotmynext.com/api/admin/insertItem`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

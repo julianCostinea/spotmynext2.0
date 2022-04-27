@@ -16,7 +16,7 @@ const SurpriseMe = (props) => {
   };
 
   useEffect(() => {
-    fetch(`https://spotmynext2-0.vercel.app/api/singleItem`)
+    fetch(`https://www.spotmynext.com/api/singleItem`)
       .then((response) => response.json())
       .then((data) => {
         if (data.result.length === 0) {
