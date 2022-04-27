@@ -8,18 +8,19 @@ import SurpriseMe from "../components/HomePageNavBox/SurpriseMe";
 
 const Home = (props) => {
   const { recentItems } = props;
-  const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
-    <Recommendation
-      key={item._id}
-      id={item._id}
-      title={item.title}
-      description={item.description}
-      photo={item.photo}
-      mainTags={item.mainTags}
-      secondaryTags={item.secondaryTags}
-      recommendations={item.recommendations}
-    />
-  ));
+  console.log(recentItems);
+  // const fetchedRecentRecommendations = recentItems.result.map((item, index) => (
+  //   <Recommendation
+  //     key={item._id}
+  //     id={item._id}
+  //     title={item.title}
+  //     description={item.description}
+  //     photo={item.photo}
+  //     mainTags={item.mainTags}
+  //     secondaryTags={item.secondaryTags}
+  //     recommendations={item.recommendations}
+  //   />
+  // ));
 
   return (
     <>
@@ -37,7 +38,7 @@ const Home = (props) => {
       </div>
       <SurpriseMe />
       <h1 className={classes.hotPicksHeader}>Recently added:</h1>
-      <Recommendations>{fetchedRecentRecommendations}</Recommendations>
+      {/* <Recommendations>{fetchedRecentRecommendations}</Recommendations> */}
     </>
   );
 };
