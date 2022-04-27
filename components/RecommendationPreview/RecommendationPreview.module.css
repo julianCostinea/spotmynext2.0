@@ -187,9 +187,9 @@
     overflow-x: hidden;
     top: 2%;
     padding: 1rem;
-    width: 98vw;
+    width: 80vw;
     min-height: 95vh;
-    left: 1%;
+    left: 10%;
   }
   .wrap {
     width: 25% !important;
