@@ -34,6 +34,9 @@
 .recommendedItemsHeader {
   color: #5e71af;
 }
+.noRecommendationsHeader{
+  color: crimson;
+}
 .descriptionAnimation {
   animation: showDescription 0.5s ease-out forwards;
 }

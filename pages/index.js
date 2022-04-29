@@ -42,14 +42,14 @@ const Home = (props) => {
   );
 };
 export async function getStaticProps() {
-  const res = await fetch("https://www.spotmynext.com/api/recentlyAdded");
+  const res = await fetch("https://www.spotmynext.com/api/popularItems?collection=all");
   const recentItems = await res.json();
 
   return {
     props: {
       recentItems,
     },
-    revalidate: 3600,
+    revalidate: 60,
   };
 }
 export default Home;

@@ -251,9 +251,15 @@ const RecommendationPreview = (props) => {
         </div>
       </div>
       <div className={classes.recommendedItems}>
-        <h1 className={classes.recommendedItemsHeader}>
-          People have recommended:
-        </h1>
+        {sortedPreviewRecommendations.length ? (
+          <h1 className={classes.recommendedItemsHeader}>
+            People have recommended:
+          </h1>
+        ) : (
+          <h1 className={classes.noRecommendationsHeader}>
+            No recommendations yet. Be the first to suggest one!
+          </h1>
+        )}
         <Recommendations>{sortedPreviewRecommendations}</Recommendations>
         <form action="" className={classes.wrap}>
           <label htmlFor="searchTerm" className={classes.searchTermLabel}>

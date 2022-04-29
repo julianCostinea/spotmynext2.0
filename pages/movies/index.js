@@ -46,7 +46,7 @@ export async function getStaticProps() {
     props: {
       popularItems,
     },
-    revalidate: 3600,
+    revalidate: 60,
   };
 }
 

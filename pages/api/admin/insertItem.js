@@ -11,6 +11,7 @@ async function handler(req, res) {
         photo: req.body.photo,
         mainTags: req.body.mainTags,
         secondaryTags: req.body.secondaryTags,
+        collection: req.body.collection
       };
       const itemCollection = db.collection(req.body.collection);
       const allItemsCollection = db.collection("allItems");
