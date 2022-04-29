@@ -4,10 +4,6 @@ const sanitize = require("mongo-sanitize");
 
 async function handler(req, res) {
   if (req.method === "PUT") {
-      console.log('====================================');
-      console.log("hello");
-      console.log('====================================');
-      return;
     try {
       const cleanParentId = sanitize(req.body.parentId);
       const cleanVotedItems = sanitize(req.body.votedItems);
@@ -16,21 +12,26 @@ async function handler(req, res) {
       let alreadyPresentIds = [];
       const votedIds = [];
 
-      const fetchPresentIds = await videoGamesCollection
-        .findOne({ _id: ObjectId(cleanParentId) }, { projection: { recommendations: 1 } },)
+      const fetchPresentIds = await videoGamesCollection.findOne(
+        { _id: ObjectId(cleanParentId) },
+        { projection: { recommendations: 1 } }
+      );
       fetchPresentIds.recommendations.forEach((element) => {
         alreadyPresentIds.push(element.id);
       });
-      for (const element of cleanVotedItems){
+      for (const element of cleanVotedItems) {
         if (!alreadyPresentIds.includes(element.id)) {
           const newItem = {
             id: element.id,
             votes: 1,
             title: element.title,
-            photo: element.photo
-          }
-          await videoGamesCollection.updateOne({ _id: ObjectId(cleanParentId) }, { $push: {recommendations: newItem} })
-        } else{
+            photo: element.photo,
+          };
+          await videoGamesCollection.updateOne(
+            { _id: ObjectId(cleanParentId) },
+            { $push: { recommendations: newItem } }
+          );
+        } else {
           votedIds.push(element.id);
         }
       }
