@@ -9,9 +9,8 @@ async function handler(req, res) {
     ) {
       try {
         const cleanQuery = sanitize(req.query.searchId)
-        const collection = req.query.collection.slice(1);
         const { db } = await connectToDatabase();
-        const dbCollection = db.collection(collection);
+        const dbCollection = db.collection(req.query.collection);
         const result = await dbCollection
           .find({ title: { $regex: new RegExp(cleanQuery, "i") } })
           .toArray();

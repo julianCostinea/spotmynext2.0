@@ -52,7 +52,7 @@ const SpotBox = (props) => {
     setIsLoading(true);
 
     fetch(
-      `https://www.spotmynext.com/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
+      `/api/search/?collection=${window.location.pathname.slice(1)}&searchId=${fetchId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -87,6 +87,7 @@ const SpotBox = (props) => {
       mainTags={item.mainTags}
       secondaryTags={item.secondaryTags}
       recommendations={item.recommendations}
+      collection = {item.collection}
     />
   ));
   return (

@@ -67,7 +67,7 @@ const RecommendationPreview = (props) => {
             parentId: parentIdRef.current,
             votedItems: votedItemsRef.current,
           };
-          HelperFunctions.fetchVoteRecommendations(data);
+          HelperFunctions.fetchVoteRecommendations(props.collection, data);
         }
       }
     },
@@ -81,7 +81,7 @@ const RecommendationPreview = (props) => {
     document.getElementById("recommendationPreview").scrollTo(0, 0);
     if (votedItems.length) {
       const data = { parentId, votedItems };
-      HelperFunctions.fetchVoteRecommendations(data);
+      HelperFunctions.fetchVoteRecommendations(props.collection, data);
     }
     fetch(
       `https://www.spotmynext.com/api/${window.location.pathname}/${previewFetchId}`
@@ -111,7 +111,7 @@ const RecommendationPreview = (props) => {
       setIsFormLoading(true);
       const fetchId = searchTermInputRef.current.value.trim();
       fetch(
-        `/api/search/?collection=${window.location.pathname}&searchId=${fetchId}`
+        `/api/search/?collection=${props.collection}&searchId=${fetchId}`
       )
         .then((response) => response.json())
         .then((data) => {
@@ -182,7 +182,7 @@ const RecommendationPreview = (props) => {
     sideDrawerCtx.hideBackdropHandler();
     if (votedItems.length) {
       const data = { parentId, votedItems };
-      HelperFunctions.fetchVoteRecommendations(data);
+      HelperFunctions.fetchVoteRecommendations(props.collection, data);
     }
   };
   const recommendationPreviewClasses = [
@@ -261,7 +261,11 @@ const RecommendationPreview = (props) => {
           </h1>
         )}
         <Recommendations>{sortedPreviewRecommendations}</Recommendations>
-        <form action="" className={classes.wrap}>
+        <form
+          action=""
+          className={classes.wrap}
+          onSubmit={(e) => e.preventDefault()}
+        >
           <label htmlFor="searchTerm" className={classes.searchTermLabel}>
             Be the first to recommend your title:
           </label>

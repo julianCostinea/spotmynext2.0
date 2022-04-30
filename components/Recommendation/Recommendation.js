@@ -22,6 +22,7 @@ const Recommendation = (props) => {
     photo,
     title,
     recommendations,
+    collection
   } = props;
 
   return (
@@ -60,6 +61,7 @@ const Recommendation = (props) => {
               secondaryTags={secondaryTags}
               photo={`/images/itemsPhotos/${photo}`}
               recommendations={recommendations}
+              collection = {collection}
             />
           )}
         </Transition>

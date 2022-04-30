@@ -14,9 +14,7 @@ async function handler(req, res) {
         collection: req.body.collection
       };
       const itemCollection = db.collection(req.body.collection);
-      const allItemsCollection = db.collection("allItems");
       const result = await itemCollection.insertOne(item);
-      const allItemsResult = await allItemsCollection.insertOne(item);
       res.status(200).json({ message: "success", result, allItemsResult });
     } catch (error) {
       res.status(error.code ?? 502).send({

@@ -19,6 +19,7 @@ const Movies = (props) => {
         mainTags={item.mainTags}
         secondaryTags={item.secondaryTags}
         recommendations={item.recommendations}
+        collection = {item.collection}
       />
     )
   );
