@@ -31,33 +31,63 @@ const SpotBox = (props) => {
   const [items, setItems] = useState([]);
   const [errorHeader, setErrorHeader] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadMoreItemsLoading, setLoadMoreItemsLoading] = useState(false);
   const [finishedSearch, setFinishedSearch] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const sideDrawerCtx = useContext(SideDrawerContext);
+  const [fetchId, setFetchId] = useState("");
+  const [lastItem, setLastItem] = useState();
+  let fetchedRecommendations;
+  let pageDelimiter = "";
 
   function showContactFormHandler() {
     sideDrawerCtx.showBackdropHandler();
     setShowContactForm(true);
   }
 
+  function loadMoreItemsHandler() {
+    setLoadMoreItemsLoading(true);
+    setFinishedSearch(false);
+    fetch(
+      `/api/search/?collection=${window.location.pathname.slice(
+        1
+      )}&searchId=${fetchId}&pageDelimiter=${pageDelimiter}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setLoadMoreItemsLoading(false);
+        const newItems = items.concat(data.result);
+        setItems(newItems);
+        setFinishedSearch(true);
+        document
+          .getElementById(pageDelimiter)
+          .scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+  }
+
   function submitFormHandler(event) {
     event.preventDefault();
+    setFinishedSearch(false);
     document.forms[0].querySelector("input").blur();
-    const fetchId = searchTermInputRef.current.value.trim();
     setErrorHeader("");
-    if (!fetchId || fetchId.length < 3) {
+    const fetchTerm = searchTermInputRef.current.value.trim();
+    if (!fetchTerm || fetchTerm.length < 3) {
       setErrorHeader(`Field must contain at least three letters.`);
       return;
     }
     setIsLoading(true);
 
     fetch(
-      `/api/search/?collection=${window.location.pathname.slice(1)}&searchId=${fetchId}`
+      `/api/search/?collection=${window.location.pathname.slice(
+        1
+      )}&searchId=${fetchTerm}`
     )
       .then((response) => response.json())
       .then((data) => {
         if (!data.result) {
-          setErrorHeader(`Something went wrong. We're looking into it`);
+          setErrorHeader(
+            `Something went wrong. We're looking into it. No result.`
+          );
           setIsLoading(false);
           return;
         }
@@ -69,27 +99,39 @@ const SpotBox = (props) => {
         }
         setItems(data.result);
         setIsLoading(false);
+        setFetchId(fetchTerm);
         setFinishedSearch(true);
+        setLastItem(data.lastItem[0]._id);
       })
       .catch((error) => {
-        setErrorHeader(`Something went wrong. We're looking into it`);
+        setErrorHeader(
+          `Something went wrong. We're looking into it. Catch block`
+        );
         setIsLoading(false);
       });
   }
 
-  const fetchedRecommendations = items.map((item, index) => (
-    <Recommendation
-      key={item._id}
-      id={item._id}
-      title={item.title}
-      description={item.description}
-      photo={item.photo}
-      mainTags={item.mainTags}
-      secondaryTags={item.secondaryTags}
-      recommendations={item.recommendations}
-      collection = {item.collection}
-    />
-  ));
+  if (finishedSearch) {
+    fetchedRecommendations = items.map((item, index) => {
+      if (items.length - 1 === index) {
+        pageDelimiter = item._id;
+      }
+      return (
+        <Recommendation
+          key={item._id}
+          id={item._id}
+          title={item.title}
+          description={item.description}
+          photo={item.photo}
+          mainTags={item.mainTags}
+          secondaryTags={item.secondaryTags}
+          recommendations={item.recommendations}
+          collection={item.collection}
+        />
+      );
+    });
+  }
+
   return (
     <React.Fragment>
       <ContactForm
@@ -101,7 +143,11 @@ const SpotBox = (props) => {
       {errorHeader ? (
         <h2 className={classes.errorHeader}>{errorHeader}</h2>
       ) : null}
-      <form onSubmit={submitFormHandler} className={classes.wrap}>
+      <form
+        onSubmit={submitFormHandler}
+        className={classes.wrap}
+        id="formThing"
+      >
         <div className={classes.search}>
           <input
             type="text"
@@ -121,8 +167,18 @@ const SpotBox = (props) => {
       </form>
 
       {isLoading ? <Loader /> : null}
-      {fetchedRecommendations ? (
-        <Recommendations>{fetchedRecommendations}</Recommendations>
+      {finishedSearch ? (
+        <>
+          <Recommendations>{fetchedRecommendations}</Recommendations>
+          {lastItem != pageDelimiter ? (
+            <button
+              className={classes.loadMoreButton}
+              onClick={loadMoreItemsHandler}
+            >
+              {loadMoreItemsLoading ? <Loader smallLoader /> : "Load more"}
+            </button>
+          ) : null}
+        </>
       ) : null}
       {finishedSearch ? (
         <div className={classes.recommendEmail}>

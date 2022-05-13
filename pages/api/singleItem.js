@@ -4,8 +4,13 @@ async function handler(req, res) {
   if (req.method === "GET") {
     try {
       const { db } = await connectToDatabase();
-      const dbCollection = db.collection("allItems");
-      const result = await dbCollection.aggregate([{ $sample: { size: 1 } }]).toArray();
+      const collections = ["videogames", "movies", "books"];
+      const randomCollectionNumber = Math.floor(Math.random() * 3);
+      console.log(collections[randomCollectionNumber]);
+      const dbCollection = db.collection(collections[randomCollectionNumber]);
+      const result = await dbCollection
+        .aggregate([{ $sample: { size: 1 } }])
+        .toArray();
       res.status(200).json({ message: "success", result: result });
     } catch (error) {
       res.status(error.code ?? 502).send({

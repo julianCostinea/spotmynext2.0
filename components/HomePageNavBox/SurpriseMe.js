@@ -16,7 +16,7 @@ const SurpriseMe = (props) => {
   };
 
   useEffect(() => {
-    fetch(`https://www.spotmynext.com/api/singleItem`)
+    fetch(`/api/singleItem`)
       .then((response) => response.json())
       .then((data) => {
         if (data.result.length === 0) {

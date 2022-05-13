@@ -22,12 +22,12 @@ const Recommendation = (props) => {
     photo,
     title,
     recommendations,
-    collection
+    collection,
   } = props;
 
   return (
     <>
-      <div className={classes.recommendation}>
+      <div className={classes.recommendation} id={props.id}>
         <h2 className={classes.recommendationTitle}>{title}</h2>
         <div
           className={`${classes.recommendationPhoto} ${classes.loads}`}
@@ -61,7 +61,7 @@ const Recommendation = (props) => {
               secondaryTags={secondaryTags}
               photo={`/images/itemsPhotos/${photo}`}
               recommendations={recommendations}
-              collection = {collection}
+              collection={collection}
             />
           )}
         </Transition>
