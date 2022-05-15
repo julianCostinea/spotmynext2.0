@@ -7,8 +7,7 @@ class MyDocument extends Document {
         <Head />
         <body>
           <Main />
-          <div id="recommendationPreviewOverlay">
-          </div>
+          <div id="recommendationPreviewOverlay"></div>
           <NextScript />
         </body>
       </Html>
