@@ -186,7 +186,7 @@ const SpotBox = (props) => {
             className={classes.recommendHeader}
             onClick={showContactFormHandler}
           >
-            Can&apos;t find what you&apos;re looking for? Write us!{" "}
+            Can&apos;t find what you&apos;re looking for? Let us know!{" "}
             <button className={classes.recommendButton}>
               {Icons.mailIcon}
             </button>

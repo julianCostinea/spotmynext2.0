@@ -22,14 +22,14 @@ async function handler(req, res) {
               title: { $regex: new RegExp(cleanQuery, "i") },
               _id: { $gt: ObjectId(pageDelimiter) },
             })
-            .limit(1)
+            .limit(8)
             .toArray();
         } else {
           result = await dbCollection
             .find({
               title: { $regex: new RegExp(cleanQuery, "i") },
             })
-            .limit(2)
+            .limit(8)
             .toArray();
             lastItem = await dbCollection
             .find(
