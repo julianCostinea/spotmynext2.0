@@ -2,6 +2,7 @@ import HomePageNavBox from "../components/HomePageNavBox/HomePageNavBox";
 import * as Icons from "../components/UI/Icons/Icons";
 import Recommendations from "../components/Recommendations/Recommendations";
 import Recommendation from "../components/Recommendation/Recommendation";
+import Head from 'next/head';
 
 import classes from "../styles/Home.module.css";
 import SurpriseMe from "../components/HomePageNavBox/SurpriseMe";
@@ -18,12 +19,22 @@ const Home = (props) => {
       mainTags={item.mainTags}
       secondaryTags={item.secondaryTags}
       recommendations={item.recommendations}
-      collection = {item.collection}
+      collection={item.collection}
     />
   ));
+  const pageTitle = "Spot My Next";
+  const pageDescription = "Find your next video game, movie or book here!";
 
   return (
     <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={{ pageDescription }} />
+      </Head>
       <h1 className={classes.title}>Need a spot?</h1>
       <div className={classes.HomePageNavBoxContainer}>
         <HomePageNavBox link="/videogames">
