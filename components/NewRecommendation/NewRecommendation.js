@@ -24,7 +24,7 @@ function NewRecommendation(props) {
         alt={props.title}
         width={40}
         height={40}
-        src={`/images${window.location.pathname}/${props.photo}`}
+        src={`/images/itemsPhotos/${props.photo}`}
       />
       <p>{props.title}</p>
       <button

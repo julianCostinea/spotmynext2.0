@@ -4,7 +4,7 @@ import Recommendation from "../../components/Recommendation/Recommendation";
 import Recommendations from "../../components/Recommendations/Recommendations";
 import FrontImage from "../../components/FrontImage/FrontImage";
 
-import classes from './books.module.css';
+import classes from "./books.module.css";
 
 const Books = (props) => {
   const { popularItems } = props;
@@ -19,7 +19,8 @@ const Books = (props) => {
         mainTags={item.mainTags}
         secondaryTags={item.secondaryTags}
         recommendations={item.recommendations}
-        collection = {item.collection}
+        collection={item.collection}
+        amazonLink={item.amazonLink}
       />
     )
   );

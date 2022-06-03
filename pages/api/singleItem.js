@@ -6,7 +6,6 @@ async function handler(req, res) {
       const { db } = await connectToDatabase();
       const collections = ["videogames", "movies", "books"];
       const randomCollectionNumber = Math.floor(Math.random() * 3);
-      console.log(collections[randomCollectionNumber]);
       const dbCollection = db.collection(collections[randomCollectionNumber]);
       const result = await dbCollection
         .aggregate([{ $sample: { size: 1 } }])

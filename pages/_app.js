@@ -8,9 +8,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Script
-        async="true"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4040759685622910"
-        crossorigin="anonymous"
+        id="Cookiebot"
+        src="https://consent.cookiebot.com/uc.js"
+        data-cbid="679ed80c-18da-4ceb-8004-dd18c86b2527"
+        data-blockingmode="auto"
+        type="text/javascript"
       ></Script>
       <Layout>
         <SideDrawerContextProvider>

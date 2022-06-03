@@ -34,7 +34,7 @@
 .recommendedItemsHeader {
   color: #5e71af;
 }
-.noRecommendationsHeader{
+.noRecommendationsHeader {
   color: crimson;
 }
 .descriptionAnimation {
@@ -85,6 +85,21 @@
 .searchButton svg {
   height: 2rem;
   width: 2rem;
+}
+
+.amazonButton {
+  border: 1px solid var(--main-color);
+  padding: 7px;
+  font-weight: bold;
+  background: var(--main-color);
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.amazonButton:hover{
+  border-bottom: 4px solid var(--main-color);
 }
 
 .ClosePreview {

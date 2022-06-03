@@ -110,9 +110,7 @@ const RecommendationPreview = (props) => {
     if (searchTermInputRef.current.value.length > 2) {
       setIsFormLoading(true);
       const fetchId = searchTermInputRef.current.value.trim();
-      fetch(
-        `/api/search/?collection=${props.collection}&searchId=${fetchId}`
-      )
+      fetch(`/api/search/?collection=${props.collection}&searchId=${fetchId}`)
         .then((response) => response.json())
         .then((data) => {
           setNewRecommendations(data.result);
@@ -247,7 +245,16 @@ const RecommendationPreview = (props) => {
         <div className={descriptionClasses.join(" ")}>
           <p>{fetchedData ? fetchedData.description : props.description}</p>
           <div style={{ marginBottom: "5px" }}>{mainTags}</div>
-          {secondaryTags}
+          {secondaryTags} <br />
+          <br />
+          <a
+            href={fetchedData ? fetchedData.amazonLink : props.amazonLink}
+            target="_blank"
+            rel="noreferrer"
+            className={classes.amazonButton}
+          >
+            Get it on Amazon!
+          </a>
         </div>
       </div>
       <div className={classes.recommendedItems}>

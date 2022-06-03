@@ -23,6 +23,7 @@ const Recommendation = (props) => {
     title,
     recommendations,
     collection,
+    amazonLink,
   } = props;
 
   return (
@@ -62,6 +63,7 @@ const Recommendation = (props) => {
               photo={`/images/itemsPhotos/${photo}`}
               recommendations={recommendations}
               collection={collection}
+              amazonLink={amazonLink}
             />
           )}
         </Transition>
