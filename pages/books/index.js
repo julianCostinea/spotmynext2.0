@@ -1,4 +1,5 @@
 import SpotBox from "../../components/SpotBox/SpotBox";
+import Head from 'next/head';
 import React from "react";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import Recommendations from "../../components/Recommendations/Recommendations";
@@ -7,6 +8,8 @@ import FrontImage from "../../components/FrontImage/FrontImage";
 import classes from "./books.module.css";
 
 const Books = (props) => {
+  const pageTitle = "Spot My Next | Books";
+  const pageDescription = "Find your next book here! Have other people recommend your next book.";
   const { popularItems } = props;
   const fetchedPopularRecommendations = popularItems.result.map(
     (item, index) => (
@@ -27,6 +30,14 @@ const Books = (props) => {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={{ pageDescription }} />
+      </Head>
       <FrontImage imagePath="/images/books.jpg" />
       <SpotBox category="books" placeholder="LOTR, 1984, Dune" />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>

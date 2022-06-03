@@ -1,4 +1,5 @@
 import SpotBox from "../../components/SpotBox/SpotBox";
+import Head from 'next/head';
 import React from "react";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import Recommendations from "../../components/Recommendations/Recommendations";
@@ -8,6 +9,8 @@ import classes from './videogames.module.css';
 
 const VideoGames = (props) => {
   const { popularItems } = props;
+  const pageTitle = "Spot My Next | Video games";
+  const pageDescription = "Find your next video game here! Have other people recommend your next video game.";
   const fetchedPopularRecommendations = popularItems.result.map(
     (item, index) => (
       <Recommendation
@@ -19,13 +22,21 @@ const VideoGames = (props) => {
         mainTags={item.mainTags}
         secondaryTags={item.secondaryTags}
         recommendations={item.recommendations}
-        collection = {item.collection}
+        collection={item.collection}
       />
     )
   );
 
   return (
     <React.Fragment>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={{ pageDescription }} />
+      </Head>
       <FrontImage imagePath="/images/videogames.jpg" />
       <SpotBox category="videogames" placeholder="Zelda, GTA, Halo" />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>
