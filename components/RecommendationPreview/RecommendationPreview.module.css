@@ -36,6 +36,9 @@
 }
 .noRecommendationsHeader {
   color: crimson;
+  font-size: 1.5rem;
+  margin-block-start: 2rem;
+  margin-block-end: 0;
 }
 .descriptionAnimation {
   animation: showDescription 0.5s ease-out forwards;
@@ -199,6 +202,9 @@
     margin-left: 4rem;
     text-align: left;
     max-width: 40%;
+  }
+  .noRecommendationsHeader {
+    font-size: 2rem;
   }
   .RecommendationPreview {
     overflow-y: auto;
