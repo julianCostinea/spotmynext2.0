@@ -28,6 +28,7 @@ const RecommendationPreview = (props) => {
   const searchTermInputRef = useRef();
   const votedItemsRef = useRef();
   const parentIdRef = useRef();
+  const amazonLink = useRef();
   parentIdRef.current = parentId;
 
   const [fetchedData, setfetchedData] = useState();
@@ -38,6 +39,25 @@ const RecommendationPreview = (props) => {
   const sideDrawerCtx = useContext(SideDrawerContext);
 
   useEffect(() => {
+    switch (window.location.pathname) {
+      case "/videogames":
+        amazonLink.current =
+          "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=612279245be3409e04be63f8eb0df4ac&camp=1789&creative=9325&index=videogames&keywords=";
+        break;
+      case "/movie":
+        amazonLink.current =
+          "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=0d82db2ddf1b0e2e1dfe567970a7ecbc&camp=1789&creative=9325&index=dvd&keywords=";
+        break;
+      case "/books":
+        amazonLink.current =
+          "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=7a2d997b0cf519015f8df73eb6f64c26&camp=1789&creative=9325&index=books&keywords=";
+        break;
+      default:
+        amazonLink.current =
+          "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=f0066940a1b925121c5389475047e5a4&camp=1789&creative=9325&index=aps&keywords=";
+        break;
+    }
+
     window.addEventListener("click", hideRecommendationPreviewOnBackdropClick);
     return () =>
       window.removeEventListener(
@@ -248,7 +268,11 @@ const RecommendationPreview = (props) => {
           {secondaryTags} <br />
           <br />
           <a
-            href={fetchedData ? fetchedData.amazonLink : props.amazonLink}
+            href={
+              fetchedData
+                ? amazonLink.current + fetchedData.title
+                : amazonLink.current + props.title
+            }
             target="_blank"
             rel="noreferrer"
             className={classes.amazonButton}
