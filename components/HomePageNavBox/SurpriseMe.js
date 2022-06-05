@@ -59,6 +59,7 @@ const SurpriseMe = (props) => {
               secondaryTags={fetchedData[0].secondaryTags}
               photo={`/images/itemsPhotos/${fetchedData[0].photo}`}
               recommendations={fetchedData[0].recommendations}
+              collection={fetchedData[0].collection}
             />
           )}
         </Transition>
