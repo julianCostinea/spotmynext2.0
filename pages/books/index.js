@@ -23,7 +23,6 @@ const Books = (props) => {
         secondaryTags={item.secondaryTags}
         recommendations={item.recommendations}
         collection={item.collection}
-        amazonLink={item.amazonLink}
       />
     )
   );

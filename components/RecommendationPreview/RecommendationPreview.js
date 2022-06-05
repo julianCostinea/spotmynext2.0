@@ -44,7 +44,7 @@ const RecommendationPreview = (props) => {
         amazonLink.current =
           "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=612279245be3409e04be63f8eb0df4ac&camp=1789&creative=9325&index=videogames&keywords=";
         break;
-      case "/movie":
+      case "/movies":
         amazonLink.current =
           "https://www.amazon.com/gp/search?ie=UTF8&tag=juliancosti0d-20&linkCode=ur2&linkId=0d82db2ddf1b0e2e1dfe567970a7ecbc&camp=1789&creative=9325&index=dvd&keywords=";
         break;
@@ -104,7 +104,7 @@ const RecommendationPreview = (props) => {
       HelperFunctions.fetchVoteRecommendations(props.collection, data);
     }
     fetch(
-      `https://www.spotmynext.com/api/${window.location.pathname}/${previewFetchId}`
+      `/api/${props.collection}/${previewFetchId}`
     )
       .then((response) => response.json())
       .then((data) => {
