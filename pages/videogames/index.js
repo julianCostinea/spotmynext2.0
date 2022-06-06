@@ -1,16 +1,18 @@
 import SpotBox from "../../components/SpotBox/SpotBox";
-import Head from 'next/head';
+import Head from "next/head";
+import Script from "next/script";
 import React from "react";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import Recommendations from "../../components/Recommendations/Recommendations";
 import FrontImage from "../../components/FrontImage/FrontImage";
 
-import classes from './videogames.module.css';
+import classes from "./videogames.module.css";
 
 const VideoGames = (props) => {
   const { popularItems } = props;
   const pageTitle = "Spot My Next | Video games";
-  const pageDescription = "Find your next video game here! Have other people recommend your next video game.";
+  const pageDescription =
+    "Find your next video game here! Have other people recommend your next video game.";
   const fetchedPopularRecommendations = popularItems.result.map(
     (item, index) => (
       <Recommendation
@@ -41,6 +43,11 @@ const VideoGames = (props) => {
       <SpotBox category="videogames" placeholder="Zelda, GTA, Halo" />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>
       <Recommendations>{fetchedPopularRecommendations}</Recommendations>
+      <div id="amzn-assoc-ad-944106c8-19e7-4323-aa3f-71c0cef0998b"></div>
+      <Script
+        async
+        src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=944106c8-19e7-4323-aa3f-71c0cef0998b"
+      ></Script>
     </React.Fragment>
   );
 };

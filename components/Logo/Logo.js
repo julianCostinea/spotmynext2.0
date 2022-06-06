@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SideDrawerContext from "../../store/SideDrawerContext";
 import Link from "next/link";
-import * as Icons from '../../components/UI/Icons/Icons';
+import * as Icons from "../../components/UI/Icons/Icons";
 
 import classes from "./Logo.module.css";
 
@@ -10,7 +10,7 @@ const Logo = (props) => {
   return (
     <div className={classes.Logo} style={{ cursor: "pointer" }}>
       <Link href="/" passHref>
-        <div
+        <a
           onClick={sideDrawerCtx.hideSideDrawer}
           className={classes.LogoContainer}
         >
@@ -18,7 +18,7 @@ const Logo = (props) => {
           <p>
             <strong>|SpotMyNext</strong>
           </p>
-        </div>
+        </a>
       </Link>
     </div>
   );
