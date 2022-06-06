@@ -38,6 +38,7 @@ const VideoGames = (props) => {
         <meta property="og:description" content={pageDescription} />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={{ pageDescription }} />
+        <script type="text/javascript" id="hs-script-loader" async defer src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=944106c8-19e7-4323-aa3f-71c0cef0998b" />
       </Head>
       <FrontImage imagePath="/images/videogames.jpg" />
       <SpotBox category="videogames" placeholder="Zelda, GTA, Halo" />
