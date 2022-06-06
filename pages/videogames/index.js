@@ -1,7 +1,6 @@
 import SpotBox from "../../components/SpotBox/SpotBox";
 import Head from "next/head";
-import Script from "next/script";
-import React from "react";
+import React, { useEffect } from "react";
 import Recommendation from "../../components/Recommendation/Recommendation";
 import Recommendations from "../../components/Recommendations/Recommendations";
 import FrontImage from "../../components/FrontImage/FrontImage";
@@ -9,6 +8,16 @@ import FrontImage from "../../components/FrontImage/FrontImage";
 import classes from "./videogames.module.css";
 
 const VideoGames = (props) => {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src =
+      "//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=944106c8-19e7-4323-aa3f-71c0cef0998b";
+    script.async = true;
+
+    document.body.appendChild(script);
+  }, []);
+
   const { popularItems } = props;
   const pageTitle = "Spot My Next | Video games";
   const pageDescription =
@@ -38,17 +47,12 @@ const VideoGames = (props) => {
         <meta property="og:description" content={pageDescription} />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={{ pageDescription }} />
-        <script type="text/javascript" id="hs-script-loader" async defer src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=944106c8-19e7-4323-aa3f-71c0cef0998b" />
       </Head>
       <FrontImage imagePath="/images/videogames.jpg" />
       <SpotBox category="videogames" placeholder="Zelda, GTA, Halo" />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>
       <Recommendations>{fetchedPopularRecommendations}</Recommendations>
       <div id="amzn-assoc-ad-944106c8-19e7-4323-aa3f-71c0cef0998b"></div>
-      <Script
-        async
-        src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=944106c8-19e7-4323-aa3f-71c0cef0998b"
-      ></Script>
     </React.Fragment>
   );
 };
