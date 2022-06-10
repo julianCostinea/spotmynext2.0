@@ -39,7 +39,7 @@ const VideoGames = (props) => {
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={{ pageDescription }} />
       </Head>
-      <div id="amzn-assoc-ad-944106c8-19e7-4323-aa3f-71c0cef0998b">HELLO</div>
+      <div id="amzn-assoc-ad-944106c8-19e7-4323-aa3f-71c0cef0998b"></div>
       <FrontImage imagePath="/images/videogames.jpg" />
       <SpotBox category="videogames" placeholder="Zelda, GTA, Halo" />
       <h1 className={classes.hotPicksHeader}>Hot picks: </h1>
