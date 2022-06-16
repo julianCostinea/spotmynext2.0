@@ -47,7 +47,7 @@ async function handler(req, res) {
       const result = await dbCollection
         .find()
         .sort({ _id: -1 })
-        .limit(20)
+        .limit(40)
         .toArray();
       res.status(200).json({ message: "success", result: result });
     } catch (error) {
