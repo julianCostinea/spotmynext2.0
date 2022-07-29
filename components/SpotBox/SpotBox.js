@@ -61,7 +61,7 @@ const SpotBox = (props) => {
         setFinishedSearch(true);
         document
           .getElementById(pageDelimiter)
-          .scrollIntoView({ behavior: "smooth", block: "nearest" });
+          .scrollIntoView({ behavior: "smooth", block: "start" });
       });
   }
 
@@ -71,8 +71,8 @@ const SpotBox = (props) => {
     document.forms[0].querySelector("input").blur();
     setErrorHeader("");
     const fetchTerm = searchTermInputRef.current.value.trim();
-    if (!fetchTerm || fetchTerm.length < 3) {
-      setErrorHeader(`Field must contain at least three letters.`);
+    if (!fetchTerm || fetchTerm.length < 2) {
+      setErrorHeader(`Field must contain at least two letters.`);
       return;
     }
     setIsLoading(true);
@@ -94,6 +94,7 @@ const SpotBox = (props) => {
         if (data.result.length == 0) {
           setErrorHeader(`Could not find any ${item} to match your query.`);
           setIsLoading(false);
+          setItems(data.result);
           setFinishedSearch(true);
           return;
         }
