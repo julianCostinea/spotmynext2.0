@@ -28,7 +28,6 @@ const Layout = (props) => {
           </SideDrawerContextProvider>
         <main className={classes.main}>{props.children}</main>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };

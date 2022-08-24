@@ -32,9 +32,6 @@ const About = () => {
         </p>
         <br />
         <p>Or check out your favourites and recommend stuff to other people.</p>
-        <br />
-        <h1>To keep it short:</h1>
-        ILLUSTRATIONS HERE
       </div>
     </>
   );
